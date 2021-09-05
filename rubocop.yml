@@ -1,0 +1,24 @@
+inherit_gem:
+  rubocop-config-umbrellio: lib/rubocop.rspec.yml
+require:
+  - rubocop-performance
+  - rubocop-rspec
+  - rubocop-rails
+
+AllCops:
+  TargetRubyVersion: 3.0.1
+  Exclude:
+    - db/schema.rb
+    - bin/bundle
+
+Layout/LineLength:
+  Max: 120
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/BlockLength:
+  ExcludedMethods: ['describe', 'context']
+
+RSpec/ExampleLength:
+  Enabled: false

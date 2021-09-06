@@ -14,7 +14,7 @@ module API
       end
 
       def sum_account_balance_by_currencies
-        result = Web::Reports::SumAccountBalanceByCurrencies.new.call(params: params.permit(:tags))
+        result = Web::Reports::SumAccountBalanceByCurrencies.new.call(params: params.permit(tags: []))
 
         if result.success?
           render json: result.data.as_json, status: :ok
@@ -38,7 +38,7 @@ module API
       end
 
       def average_max_min_transfer_params
-        params.permit(:from, :to, :tags)
+        params.permit(:from, :to, tags:[])
       end
     end
   end

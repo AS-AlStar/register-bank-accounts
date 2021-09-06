@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
+tags = %w[t a g s]
+
 # Create users
 10.times do |i|
   users_params = {
     first_name: "Ivan#{i}",
     last_name: "Ivanov#{i}",
     identity_number: SecureRandom.uuid,
-    tags: ["t", "a", "g" "s"]
+    tags: tags.sample
   }
   Web::Users::Create.new.call(params: users_params)
 end
@@ -17,7 +19,7 @@ currencies = %w[USD EUR BYN RUB]
 
 # Create accounts
 10.times do
-  create_params = { currency: currencies.sample, identity_number: identity_numbers.sample }
+  create_params = { currency: currencies.sample, identity_number: identity_numbers.sample}
   Web::Accounts::Create.new.call(params: create_params)
 end
 

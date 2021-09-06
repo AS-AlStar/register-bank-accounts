@@ -24,7 +24,7 @@ module API
       end
 
       def transfer
-        result = Web::Accounts::Transfer.new.call(params: deposit_params)
+        result = Web::Accounts::Transfer.new.call(params: transfer_params)
 
         if result.success?
           render json: result.data.as_json, status: :ok
